@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isysoev <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 22:18:21 by isysoev           #+#    #+#             */
-/*   Updated: 2024/04/23 19:37:40 by isysoev          ###   ########.fr       */
+/*   Created: 2024/04/23 19:38:19 by isysoev           #+#    #+#             */
+/*   Updated: 2024/04/23 19:39:13 by isysoev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
 int	ft_isalphanum(char c)
 {
@@ -56,12 +55,4 @@ char	*ft_strcapitalize(char *str)
 		i++;
 	}
 	return (str);
-}
-
-int	main(void)
-{
-	char	s[] = {"salut, comment tu vas ? 42Mots quarante-deux; cinquante+et+un"};
-
-	printf("%s", ft_strcapitalize(s));
-	return (1);
 }

@@ -5,63 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: isysoev <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 22:18:21 by isysoev           #+#    #+#             */
-/*   Updated: 2024/04/23 19:37:40 by isysoev          ###   ########.fr       */
+/*   Created: 2024/04/23 21:38:47 by isysoev           #+#    #+#             */
+/*   Updated: 2024/05/12 18:06:43 by isysoev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
+#include <unistd.h>
 
-int	ft_isalphanum(char c)
+int	ft_isprintable(char c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	if (c >= '0' && c <= '9')
+	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }
 
-char	ft_tolower(char c)
+void	ft_putchar(char c)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	write(1, &c, 1);
 }
 
-char	ft_toupper(char c)
+void	ft_puthex(char c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	char	*hex;
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = "00";
+	hex = "0123456789abcdef";
+	while (c % 16 > 0)
+	{
+		str[i++] = hex[c % 16];
+		c /= 16;
+	}
+	ft_putchar('\\');
+	ft_putchar(str[1]);
+	ft_putchar(str[0]);
 }
 
-char	*ft_strcapitalize(char *str)
+void	ft_putstr_non_printable(char *str)
 {
-	int	word_start;
 	int	i;
 
-	word_start = 1;
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (ft_isalphanum(str[i]))
+		if (!ft_isprintable(str[i]))
 		{
-			if (word_start)
-				str[i] = ft_toupper(str[i]);
-			else
-				str[i] = ft_tolower(str[i]);
-			word_start = 0;
+			ft_puthex(str[i]);
 		}
 		else
-			word_start = 1;
+		{
+			ft_putchar(str[i]);
+		}
 		i++;
 	}
-	return (str);
 }
 
 int	main(void)
 {
-	char	s[] = {"salut, comment tu vas ? 42Mots quarante-deux; cinquante+et+un"};
-
-	printf("%s", ft_strcapitalize(s));
-	return (1);
+	ft_putstr_non_printable("Hello\nworld!");
 }

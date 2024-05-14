@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isysoev <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 20:26:47 by isysoev           #+#    #+#             */
-/*   Updated: 2024/05/12 18:19:06 by isysoev          ###   ########.fr       */
+/*   Created: 2024/05/14 20:02:05 by isysoev           #+#    #+#             */
+/*   Updated: 2024/05/14 20:26:45 by isysoev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, char *src)
+char	*ft_strstr(char *str, char *to_find)
 {
 	char	*p;
+	char	*q;
 
-	p = dst;
-	while (*src != '\0')
+	p = str;
+	q = to_find;
+	while (*str != '\0')
 	{
-		*dst++ = *src++;
+		if (*to_find == '\0')
+			return (p);
+		if (*str == *to_find)
+		{
+			if (p == NULL)
+				p = str;
+			to_find++;
+		}
+		else
+		{
+			to_find = q;
+			p = NULL;
+		}
+		str++;
 	}
-	*dst = '\0';
-	return (p);
+	if (*to_find == '\0')
+		return (p);
+	return (NULL);
 }

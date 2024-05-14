@@ -6,17 +6,20 @@
 /*   By: isysoev <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 20:45:22 by isysoev           #+#    #+#             */
-/*   Updated: 2024/04/09 20:45:29 by isysoev          ###   ########.fr       */
+/*   Updated: 2024/05/12 18:21:28 by isysoev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{	
+	char	*p;
 
-{
+	p = dest;
 	while (*src != '\0' && n-- > 0)
 	{
 		*dest++ = *src++;
 	}
-	*dest = '\0';
-	return (dest);
+	if (*src == '\0')
+		*dest = '\0';
+	return (p);
 }

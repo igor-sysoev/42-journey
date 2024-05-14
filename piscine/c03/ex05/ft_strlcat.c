@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isysoev <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 20:26:47 by isysoev           #+#    #+#             */
-/*   Updated: 2024/05/12 18:19:06 by isysoev          ###   ########.fr       */
+/*   Created: 2024/05/14 20:39:23 by isysoev           #+#    #+#             */
+/*   Updated: 2024/05/14 20:45:10 by isysoev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, char *src)
+unsigned int	ft_strlcat(char *dest, char *str, unsigned int size)
 {
-	char	*p;
+	unsigned int	i;
 
-	p = dst;
-	while (*src != '\0')
+	i = 0;
+	while (*dest != '\0')
 	{
-		*dst++ = *src++;
+		dest++;
+		i++;
 	}
-	*dst = '\0';
-	return (p);
+	while (*str != '\0' && (size--) - i > 0)
+	{
+		*dest++ = *str++;
+	}
+	*dest = '\0';
+	return (size);
 }
