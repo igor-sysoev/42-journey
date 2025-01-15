@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isysoev <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/06 11:50:49 by isysoev           #+#    #+#             */
+/*   Updated: 2025/01/06 13:08:26 by isysoev          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include <unistd.h>
+#include <fcntl.h>
+#include "ft.h"
+
+int	ft_validate_args(int argc)
+{
+	if (argc == 1)
+		ft_putstr("File name is missing.\n");
+	if (argc > 2)
+		ft_putstr("Too many arguments.\n");
+	return (argc == 1 || argc > 2);
+}
+
+int	main(int argc, char **argv)
+{
+	int	is_invalid;
+	int	fd;
+	char		buf[128];
+
+	is_invalid = ft_validate_args(argc);
+	if (is_invalid)
+		return (1);
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+	{
+		ft_putstr("Cannot read file\n.");
+		return (1);
+	}
+}
