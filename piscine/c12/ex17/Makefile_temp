@@ -1,0 +1,37 @@
+#  |  |  ___ \    \  |         |
+#  |  |     ) |  |\/ |   _  |  |  /   _ 
+# ___ __|  __/   |   |  (   |    <    __/ 
+#    _|  _____| _|  _| \__,_| _|\_\ \___|
+#                              by jcluzet
+################################################################################
+#                                     CONFIG                                   #
+################################################################################
+
+NAME        := minishell
+CC        := clang
+FLAGS    := -Wall -Wextra -Werror 
+################################################################################
+#                                 PROGRAM'S SRCS                               #
+################################################################################
+
+SRCS        :=      srcs/ft_list_foreach.c \
+                          srcs/ft_list_find.c \
+                          srcs/ft_list_last.c \
+                          srcs/ft_list_reverse_fun.c \
+                          srcs/ft_list_foreach_if.c \
+                          srcs/ft_sorted_list_insert.c \
+                          srcs/ft_list_push_strs.c \
+                          srcs/ft_list_push_back.c \
+                          srcs/ft_list_size.c \
+                          srcs/ft_list_push_front.c \
+                          srcs/ft_sorted_list_merge.c \
+                          srcs/ft_list_sort.c \
+                          srcs/ft_list_at.c \
+                          srcs/main.c \
+                          srcs/ft_list_reverse.c \
+                          srcs/ft_list_clear.c \
+                          srcs/ft_list_merge.c \
+                          srcs/ft_list_remove_if.c \
+                          srcs/ft_create_elem.c \
+                          srcs/ft_strcmp.c \
+                          
